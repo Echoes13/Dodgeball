@@ -1,3 +1,2 @@
 # Dodgeball
-Harjoittelua pienen repotreenin avulla... plääh
-
+Peli, jossa väistellään palloja.
