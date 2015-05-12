@@ -1,0 +1,325 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf510
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 \ul \ulc0 JTP - luennot\
+\ulnone \
+
+\b Esim. 1
+\b0 \
+Leijona viett\'e4\'e4 y\'f6ns\'e4 jossakin 3:sta tilasta:\
+	-unelias\
+	-aktiivinen\
+	-\'e4rtynyt\
+Leijona sy\'f6 y\'f6n aikana Y ihmist\'e4, jonka pistetn.t riippuvat leijonan tilasta:\
+\
+			
+\b sy\'f6dyt ihmiset
+\b0 		\
+	
+\b tila
+\b0 		0	1	2	3\
+	unelias	0.9	0.1	0	0\
+	aktiivinen	0.1	0.4	0.4	0.1\
+	\'e4rtynyt	0	0.1	0.2	0.7\
+\
+(tarkista ptnf siit\'e4 ett\'e4 sum=1 ja kaikki yn > 0)\
+\
+Esim. tn sille ett\'e4 akt leijona sy\'f6 ainakin ihmisen on\
+	P_akt(Y >= 1) = 0.4 + 0.4 + 0.1 = 0.9 = 1 - 0.1 = 1 - P_akt(Y = 0)\
+\
+
+\b Til. p\'e4\'e4ttely
+\b0 : Aamulla havaitaan, ett\'e4 leijona sy\'f6nyt y = 3 ihmist\'e4.\
+Mit\'e4 voidaan p\'e4\'e4tell\'e4 leijonan tilasta y\'f6n aikana?\
+	-varmuudella: ei unelias\
+	-\'e4rtynyt uskottavin selitys\
+\
+\
+
+\b Esim. 2\
+
+\b0 "Pallot korissa" (eli binomikoe, toistokoe)\
+Korissa N palloa: K keltaista, N-K valkoista\
+	nostetaan umpim\'e4hk\'e4\'e4n ja palauttaen n palloa (esim n=10)\
+\
+M\'e4\'e4ritell\'e4\'e4n sm:t\
+	Y: = 	1, jos i:s pallo keltainen\
+		0, jos valkoinen		(i=1,\'85,n)\
+=>	Y1,\'85,Yn riippumattomia\
+\
+Yi:n ptf on\
+	P(Yi = 1) =  K/N = \'d8\
+	P(Yi = 0) = 1 - K/N = 1 - \'d8\
+\'d8 = K/N keltaisten osuus korissa\
+\
+X = Y1 + \'85 + Yn = keltaisten lkm n nostossa\
+\
+Tn-laskenta => X ~ Bin(n,\'d8)\
+	X:ll\'e4 on ptf\
+	P(X=x) = nPr(n x) \'d8^x (1-\'d8)^(n-x)	, x= 0,1,\'85,n\
+\
+
+\b Til. p\'e4\'e4ttely
+\b0 : Olet. \'d8 tuntematon (0 <= \'d8 <= 1)\
+Tehd\'e4\'e4n n nostoa ja havaitaan x keltaista.\
+Mit\'e4 voidaan p\'e4\'e4tell\'e4 \'d8:st\'e4?\
+Esim. n=10, havaittu x=4\
+	-varmasti \'d8 \uc0\u8800  0 ja \'d8 \u8800  1\
+	-kaikki 0 < \'d8 < 1 mahdollisia\
+	-paras arvaus \'d8 = 4/10 = 0.4\
+\
+\
+\ul Yleinen asetelma\ulnone \
+Tarkasteltavana \ul aineisto\ulnone  y = (y1,\'85,yn) jossa y1,\'85,yn ovat \ul havainnot\ulnone \
+N\'e4ihin liittyy satunnaisuutta\
+=>	ne ovat er\'e4iden sm:ien Y1,\'85,Yn tot. arvoja (eli \ul realisaatioita\ulnone ), vektorina Y = (Y1,\'85,Yn)\
+\
+N\'e4iden (yhteis)jakauma f(y) on (ainakin osittain) tuntematon\
+\ul Tavoite\ulnone : Tee p\'e4\'e4telmi\'e4 f:st\'e4 aineiston y perusteella!\
+\
+Useimmiten (ja t\'e4ll\'e4 kurssilla) oletetaan ett\'e4 yptf/ytf on tunnettu \
+jotakin parametria (-) vaille, ts. f on tunnettua muotoa\
+	f(\ul y\ulnone ; (-))\
+jossa (-) \ul tuntematon\ulnone . (-) voi olla\
+	-reaalinen\
+	-tai koostua useammasta komponentista (-) = ((-)1,\'85,(-)n)\
+\
+M\'e4\'e4r. Yptf/ytf f(y; (-)) on (\ul parametrinen\ulnone ) \ul tilastollinen malli\ulnone  ja (-) on sen parametri.\
+Mahdollisten (-):n arvojen joukko on \ul parametriavaruus\ulnone .\
+\
+\ul Tavoite\ulnone : Tee p\'e4\'e4telmi\'e4 (-):n todellisesta arvosta aineiston y perusteella!\
+\
+\
+\
+\ul P\'e4\'e4ttelyn erityiskysymyksi\'e4\ulnone \
+\
+A.\ul Piste-estimointi\ulnone \
+\
+B.\ul V\'e4liestimointi\ulnone  (tai joukkoestimointi) \
+\
+C.\ul Hypoteesitestaus\ulnone \
+\
+D.\ul Mallinarviointi\ulnone \
+\
+\
+Esim.1 "Leijona" koodataan leijonan tila (-)\
+	(-) = 1	<->	unelias	|	parametri (-) on\
+	(-) = 2	<->	aktiivinen	|	1-ulotteinen\
+	(-) = 3	<->	\'e4rtynyt	|	joukko = \{1,2,3\}\
+\
+f(1; 2) = 0.4\
+Aineisto oli yksi havainto y.\
+\
+2. "Pallot korissa" / binomikoe\
+Parametri \'d8 on onnistumistn.\
+	0 <= \'d8 <= 1	=>	joukko = [0,1]\
+Aineisto on yksi havainto x\
+	= onnistumisten lkm n toistossa\
+Til malli on X:n ptf:\
+	f(x; \'d8) = nPr(n x) \'d8^x (1-\'d8)^(n-x)\
+\
+\
+\
+
+\b Esim. 3
+\b0 \
+Kliininen koe. Tautiin kehitetty lupaava l\'e4\'e4ke.\
+	(-)1 = tn parantua ilman l\'e4\'e4kett\'e4\
+	(-)2 = tn parantua l\'e4\'e4kittyn\'e4\
+Poimitaan satunnaisotos: 100 tautia sairastavaa\
+jaetaan satunnaisesti kahteen 50:n hengen ryhm\'e4\'e4n\
+	Ryhm\'e4 1 saa plaseboa.\
+	Ryhm\'e4 2 saa uutta l\'e4\'e4kett\'e4.\
+seuranta-ajan j\'e4lkeen havaitaan:\
+	-ryhm\'e4ss\'e4 1 parani y1 ihmist\'e4\
+	-ryhm\'e4ss\'e4 2 parani y2 ihmist\'e4\
+Aineisto on y = (y1,y2)\
+Parametri on (-) = ((-)1, (-)2), 0 <= (-)1, (-)2 <= 1\
+\
+Teht\'e4v\'e4: tee p\'e4\'e4telmi\'e4 (-):sta y:n avulla\
+	Erityisesti p\'e4teek\'f6 (-)2 > (-)1?\
+\
+\
+\
+Til. malli f(\ul y\ulnone ;(-))\
+- jokaisella (-) e (H):\
+	f(\ul y\ulnone ;(-)) on tn-jakauma (yptnf/ytf)\
+	\ul y\ulnone :n suhteen er\'e4\'e4lle sv:lle \ul Y\ulnone  = (Y1,\'85,Yn)\
+- til. p\'e4\'e4ttely: jos havaittu aineisto \ul y\ulnone , niin mit\'e4\
+voidaan p\'e4\'e4tell\'e4 (-):st\'e4?\
+\
+\ul Esim\ulnone . Til. malli Y~ Bin(n,(-)), 0 <= (-) <= 1 parametri\
+	ptf: f(y;(-)) 	= P_(-)(Y=y)\
+			= nCr(n y) (-)^y (1-(-))^(n-y), y = 0,1,\'85,n , 0 muulloin\
+\
+*esim. "nostetaan n palloa korista palauttaen"\
+	Y = kelt lkm otoksessa\
+	(-) = kelt suht osuus korissa\
+*\ul yleisemmin\ulnone : binomikoe/toistokoe, n toistoa\
+	Y = onnistumisten lkm\
+	(-) = yhden toiston onnistumista\
+\
+\
+\ul Huomautuksia\ulnone :\
+Yll\'e4 \ul frekventistinen paradigma\ulnone :\
+	- \ul y\ulnone  on sv:n \ul Y\ulnone  toteutunut arvo\
+	- satunnaisuus <--> toistettu aineistonkeruu\
+	- (-) on tuntematon mutta kiinte\'e4 piste (H):ssa\
+	- (-):lla ei ole tn-jakaumaa!\
+\
+Kurssin lopulla \ul bayeslainen paradigma\ulnone :\
+	- my\'f6s (-):lla on tn-jakauma\
+	- subjektiivinen tn:n tulkinta\
+\
+\
+\ul Mallin muodostamisesta\ulnone \
+-yleens\'e4 vaikea teht\'e4v\'e4 (alkeisesim. lukuunottamatta)\
+-tutkittavan aiheen asiantuntemus\
+-jatkuva prosessi\
+-meill\'e4: mallit joko "helppoja" tai "annettuja"\
+\
+f(\ul y\ulnone ;(-)) on\
+- diskreetiss\'e4 tapauksessa yptf\
+	f(\ul y\ulnone ;(-)) = P_(-)(\ul Y\ulnone =\ul y\ulnone ) = P_(-)(Y1=y1,\'85,Yn=yn)\
+- jatkuvassa tapauksessa ytf \ul Y\ulnone :lle:\
+	P(Y e A) = \uc0\u8747 _A f(\ul y\ulnone ;(-) d\ul y\ulnone 	(n-ulott. integraali) jos A c R^n\
+\
+\ul Erikoistapauksia\ulnone :\
+Jos Y1,\'85,Yn ovat riippumattomat,\
+	f(\ul y\ulnone ;(-)) 	= \uc0\u8719 ^n_(i=1) f_Yi(yi;(-))\
+			= f_Y1(y1;(-)) f_Y2(y2;(-)) \'85 f_Yn(yn;(-))\
+-jos lis\'e4ksi Yi:t samoin jakautuneita\
+	g(x;(-)), niin \
+	f(y;(-)) =  \uc0\u8719 ^n_(i=1) g(yi;(-))\
+\
+\
+\\textbf\{Uskottavuusfunktio ja suurimman uskottavuuden menetelm\'e4\}\
+\\underline\{Motivaatio\}: toistokoemalli $X ~ Bin(n,\\theta)$\
+	- $n =$ toistojen lkm (tunnettu luku)\
+	- $\\theta =$ parametri (tuntematon), yhden kokeen onnistumistodenn\'e4k\'f6isyys\
+	- havaitaan X:n arvo x\
+X:n ptf: $f(x;\\theta) = P(X=x) = \{n \\choose x\} \\theta^x (1-\\theta)^\{n-x\}, x = 0,1,\\ldots,n$\
+\
+\\textbf\{Esim.A\} $n=10$ ja havainto $X=4$ \\newline\
+	T\'e4m\'e4n havainnon todenn\'e4k\'f6isyys $f(4;\\theta) = P(X=4) = \{10 \\choose 4\} \\theta^4 (1-\\theta)^6\
+		=$ todenn\'e4k\'f6isyys saada "$X=4$" silloin kun parametrilla on arvo $\\theta$\
+Tarkastellaan t\'e4t\'e4 $\\theta$:n funktiona:\
+	L((-)) = 210\\theta^4 (1-\\theta)^6, 0 \\leq\\theta\\leq1\
+\
+\
+\
+\
+\
+t-testisuure	t = t(y) = (y-\\my0)/(s/\uc0\u8730 n)\
+p = p(y) = P\\my0(T\uc0\u8805 t),	T = (Y-\\my0)/(S/\u8730 n) \
+\
+\
+\
+p-arvon tulkinnasta\
+\
+tn viittaa aineistoon, ei parametriin!\
+\
+p ei ole "tn sille ett\'e4 H0 p\'e4tee" vaan tn H0:n p\'e4tiess\'e4 saada aineisto joka on yht\'e4 kummallinen tai viel\'e4 kummallisempi kuin nyt havaittu aineisto y\
+\
+pieni p-arvo ei tarkoita ett\'e4 "Ho ep\'e4todenn\'e4k\'f6isempi" vaan ett\'e4 saatu aineisto on ep\'e4todenn\'e4k\'f6isempi H0:n p\'e4tiess\'e4\
+\
+\
+\ul Testin johtop\'e4\'e4t\'f6kset\ulnone \
+1. p on tunnusluku, joka mittaa aineiston ja H0:n yhteensopivuutta asteikolla [0,1]\
+	-p \uc0\u8805  0.1 : aineisto on (kohtuullisessa) sopusoinnussa H0:n kanssa\
+	-p \uc0\u8776  0.05 : aineisto todistaa liev\'e4sti H0:aa vastaan\
+	-p \uc0\u8804  0.01 : aineisto todistaa vahvasti H0:aa vastaan\
+\
+\
+2. P\'e4\'e4t\'f6steoreettinen l\'e4hestymistapa\
+Joskus teht\'e4v\'e4 p\'e4\'e4t\'f6s:\
+	-H0 hyv\'e4ksyt\'e4\'e4n\
+	-tai H0 hyl\'e4t\'e4\'e4n ja H1 hyv\'e4ksyt\'e4\'e4n\
+Menettely:\
+	-valitaan (jo ennalta) merkitsevyystaso 0 < a < 1\
+	-jos p < a, niin H0 hyl\'e4t\'e4\'e4n ja H1 hyv\'e4ksyt\'e4\'e4n\
+	-jos p \uc0\u8805  a, niin H0 hyv\'e4ksyt\'e4\'e4n\
+\
+Tavanomaisia merkitsevyystasoja	a = 0.05, a = 0.01\
+-jos p < 0.01, niin poikkeama H0:sta "tilastollisesti merkitsev\'e4"\
+-jos p < 0.05, niin poikkeama H0:sta "melkein merkitsev\'e4"\
+\
+\
+\
+
+\b P\'e4\'e4ttelyn Perusasetelma 
+\i\b0 1-2
+\i0 \
+-tilastollinen malli, parametri\
+
+\i \
+
+\i0\b Uskottavuus 
+\i\b0 4 (ei 4.5)
+\i0 \
+-uskottavuusfunktio\
+-SU-menetelm\'e4\
+-esim. binomikoe, normaalijakauma\
+
+\i \
+
+\i0\b Luottamusv\'e4lit ja -joukot 
+\i\b0 5.1-5.2, 5.4, 5.6 (ei 5.6.4)
+\i0\b \
+
+\b0 -yleinen m\'e4\'e4ritelm\'e4 ja tulkinta\
+-esim. normaalimalli\
+\
+
+\b Testaus
+\i\b0  6.1-6.2, 6.4-6.5, 6.7, 6.9-6.10
+\i0\b \
+
+\b0 -hypoteesit, testisuure\
+-p-arvon m\'e4\'e4ritelm\'e4 ja tulkinta\
+-p\'e4\'e4t\'f6ksenteko\
+-esim normaalimalli\
+\
+
+\b Lineaarinen regressio 
+\i\b0 s.104-110
+\i0\b \
+
+\b0 -PNS-menetelm\'e4\
+-lineaarinen malli\
+\
+
+\b Bayes-p\'e4\'e4ttely
+\b0  
+\i 10.1-10.6
+\i0\b \
+
+\b0 -priori, posteriori\
+-Bayesin kaava\
+\
+\
+\
+
+\i \ul Tenttiteht\'e4v\'e4t\ulnone \
+
+\i0 -harjoitusteht\'e4vien tapaisia\
+-teoriateht\'e4vi\'e4:\
+	-k\'e4sitteet\
+	-menetelm\'e4t\
+	-tulkinnat\
+\
+\
+\
+\
+
+\i \ul V\'e5ren 2014 tent
+\i0 \ulnone \
+\
+2.b) \
+Ei oikein!\
+Syy: Luottamusv\'e4li on parametria my:t\'e4 koskeva v\'e4ite, ei havaintoja!\
+\
+}
