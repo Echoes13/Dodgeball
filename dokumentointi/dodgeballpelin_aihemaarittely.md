@@ -8,8 +8,9 @@
 
 ####**Pelaajan toiminnot:**
 * *Pelaaja* voi liikuttaa hahmoansa kahdeksaan eri suuntaan.
+* *Pelaaja* näkee missä hahmo ja pallot liikkuvat.
 * *Pelaaja* näkee kuinka kauan on selviytynyt.
 
 ####**Pallojen toiminnot:**
-* *Pallot* ilmestyvät joltakin sivulta.
+* *Pallot* ilmestyvät joltakin sivulta ja liikkuvat tiettyyn suuntaan.
 * *Pallojen* vauhti kasvaa pelin myötä.
