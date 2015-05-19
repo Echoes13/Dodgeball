@@ -17,3 +17,5 @@
 #####Ti 19.5.2018
 * 1,5h
 * Yksinkertaisen pelilogiikan hiominen
+* 1,5hs
+* Koodin siistiminen ja testien tekeminen

@@ -20,20 +20,13 @@ public class PalloKori implements Liikkuva {
         pallot.add(new Pallo(satu.nextInt(peli.getKorkeus()), peli.getKorkeus(), peli.getLeveys()));
     }
     
-    public void heitaPallo(Pallo pallo) {
-        if (pallo.meneeTakaisinKoriin()) {
-            pallo.heittoToiseltaPuolelta(satu.nextInt(peli.getKorkeus()));
-        }
-    }
-    
-    public int pallojenMaara() {
+    public int pallojaKorissa() {
         return pallot.size();
     }
 
     @Override
     public void liiku() {
         for (Pallo pallo : pallot) {
-            heitaPallo(pallo);
             pallo.liiku();
         }
     }

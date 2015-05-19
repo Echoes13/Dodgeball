@@ -36,9 +36,11 @@
                 <configuration>
                     <targetClasses>
                         <param>dodgeballpeli.domain</param>
+                        <param>dodgeballpeli.peli</param>
                     </targetClasses>
                     <targetTests>
                         <param>dodgeballpeli.domain</param>
+                        <param>dodgeballpeli.peli</param>
                     </targetTests>
                 </configuration>
             </plugin>

@@ -14,18 +14,17 @@ public class Peli{
     Vaistaja pelaaja;
     PalloKori pallokori;
     List<Liikkuva> liikkuvatOsat;
-    private int pallojenMaara;
-    
+
     public Peli(int leveys, int korkeus) {
         this.leveys = leveys;
         this.korkeus = korkeus;
         liikkuvatOsat = new ArrayList<Liikkuva>();
         luoPelaaja();
-        luoPalloKorit();
-        pallojenMaara = 1;
+        luoPalloKori();
+        pallokori.lisaaPeliinPallo();
     }
     
-    private void luoPalloKorit() {
+    private void luoPalloKori() {
         pallokori = new PalloKori(this);
         liikkuvatOsat.add(pallokori);
     }
@@ -48,17 +47,11 @@ public class Peli{
     }
  
     public void etene() {
-        lisaaPalloja();
         for(Liikkuva osa : liikkuvatOsat) {
             osa.liiku();
         }
     }
     
-    public void lisaaPalloja() {
-        if (pallokori.pallojenMaara() < pallojenMaara) {
-            pallokori.lisaaPeliinPallo();
-        }
-    }
     
     @Override
     public String toString() {
