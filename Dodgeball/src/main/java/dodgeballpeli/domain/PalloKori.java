@@ -9,21 +9,21 @@ public class PalloKori implements Liikkuva {
     private Random satu;
     Peli peli;
     ArrayList<Pallo> pallot;
-    int sivu;
     
-    public PalloKori(Peli peli, int sivu) {
+    public PalloKori(Peli peli) {
         this.satu = new Random();
         this.peli = peli;
         this.pallot = new ArrayList<Pallo>();
-        this.sivu = sivu;
     }
     
     public void lisaaPeliinPallo() {
-        pallot.add(new Pallo(satu.nextInt(peli.getKorkeus()), sivu, peli.getKorkeus()));
+        pallot.add(new Pallo(satu.nextInt(peli.getKorkeus()), peli.getKorkeus(), peli.getLeveys()));
     }
     
-    public void otaPallo(Pallo pallo) {
-        pallot.add(pallo);
+    public void heitaPallo(Pallo pallo) {
+        if (pallo.meneeTakaisinKoriin()) {
+            pallo.heittoToiseltaPuolelta(satu.nextInt(peli.getKorkeus()));
+        }
     }
     
     public int pallojenMaara() {
@@ -33,6 +33,7 @@ public class PalloKori implements Liikkuva {
     @Override
     public void liiku() {
         for (Pallo pallo : pallot) {
+            heitaPallo(pallo);
             pallo.liiku();
         }
     }

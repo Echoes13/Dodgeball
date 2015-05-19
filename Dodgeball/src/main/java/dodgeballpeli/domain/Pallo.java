@@ -9,33 +9,39 @@ public class Pallo implements Liikkuva {
     int y;
     int ya;
     private int alaseina;
+    private int sivuraja;
     
     
-    public Pallo(int heittoPiste, int sivu, int alaseina) {
-        this.x = sivu;
+    public Pallo(int heittoPiste, int alaseina, int sivu) {
+        this.x = 0;
         this.y = heittoPiste;
         this.alaseina = alaseina;
-        if(sivu == 0) {
-            xa = 1;
-        } else {
-            xa = -1;
-        }
+        this.sivuraja = sivu;
+        xa = 1;
         ya = 1;
     }
     
-    private void kaannyTarvittaessa(int piste, int suunta) {
-        if (piste + suunta < 0 || piste + suunta > alaseina) {
-            suunta *= -1;
+    public boolean meneeTakaisinKoriin() {
+        if (x < 0 || x > sivuraja) {
+            return true;
+        }
+        return false;
+    }
+    
+    private void osuuSeinaan() {
+        if (y + ya < 0 || y + ya > alaseina) {
+            ya *= -1;
         }
     }
     
-    public int getX() {
-        return x;
+    public void heittoToiseltaPuolelta(int heitonYKoordinaatti) {
+        y = heitonYKoordinaatti;
+        xa *= -1;
     }
     
     @Override
     public void liiku() {
-        kaannyTarvittaessa(y,ya);
+        osuuSeinaan();
         x += xa;
         y += ya;
     }

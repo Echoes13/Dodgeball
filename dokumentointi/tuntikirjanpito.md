@@ -9,3 +9,11 @@
 * Tiedostojen luominen, sekä liittäminen Githubiin
 
 
+#####Ma 18.5.2018
+* 3,5h
+* Pelilogiikan luominen ja muokkaaminen
+
+
+#####Ti 19.5.2018
+* 1,5h
+* Yksinkertaisen pelilogiikan hiominen

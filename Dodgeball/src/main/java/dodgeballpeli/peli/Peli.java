@@ -12,8 +12,7 @@ public class Peli{
     int leveys;
     int korkeus;
     Vaistaja pelaaja;
-    PalloKori vasenPuoli;
-    PalloKori oikeaPuoli;
+    PalloKori pallokori;
     List<Liikkuva> liikkuvatOsat;
     private int pallojenMaara;
     
@@ -27,10 +26,8 @@ public class Peli{
     }
     
     private void luoPalloKorit() {
-        vasenPuoli = new PalloKori(this, 0);
-        liikkuvatOsat.add(vasenPuoli);
-        oikeaPuoli = new PalloKori(this, leveys);
-        liikkuvatOsat.add(oikeaPuoli);
+        pallokori = new PalloKori(this);
+        liikkuvatOsat.add(pallokori);
     }
     
     private void luoPelaaja() {
@@ -45,18 +42,21 @@ public class Peli{
     public int getKorkeus() {
         return korkeus;
     }
+    
+    public Vaistaja getPelaaja() {
+        return pelaaja;
+    }
  
     public void etene() {
+        lisaaPalloja();
         for(Liikkuva osa : liikkuvatOsat) {
             osa.liiku();
         }
-        lisaaPalloja();
     }
     
     public void lisaaPalloja() {
-        int nykyinenMaara = oikeaPuoli.pallojenMaara() + vasenPuoli.pallojenMaara();
-        if (nykyinenMaara < pallojenMaara) {
-            oikeaPuoli.lisaaPeliinPallo();
+        if (pallokori.pallojenMaara() < pallojenMaara) {
+            pallokori.lisaaPeliinPallo();
         }
     }
     
