@@ -9,13 +9,17 @@
 * Tiedostojen luominen, sekä liittäminen Githubiin
 
 
-#####Ma 18.5.2018
+#####Ma 18.5.2015
 * 3,5h
 * Pelilogiikan luominen ja muokkaaminen
 
 
-#####Ti 19.5.2018
+#####Ti 19.5.2015
 * 1,5h
 * Yksinkertaisen pelilogiikan hiominen
-* 1,5hs
+* 1,5h
 * Koodin siistiminen ja testien tekeminen
+
+#####Ke 20.5.2015
+* 3h
+* Luokkakaavion ja testien tekeminen

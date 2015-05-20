@@ -25,12 +25,12 @@ public class Peli{
     }
     
     private void luoPalloKori() {
-        pallokori = new PalloKori(this);
+        pallokori = new PalloKori(leveys, korkeus);
         liikkuvatOsat.add(pallokori);
     }
     
     private void luoPelaaja() {
-        this.pelaaja = new Vaistaja(this);
+        this.pelaaja = new Vaistaja(leveys, korkeus);
         liikkuvatOsat.add(pelaaja);
     }
     
@@ -59,6 +59,6 @@ public class Peli{
         for(Liikkuva osa : liikkuvatOsat) {
             tulostus += osa.toString() + "\n";
         }
-        return tulostus;
+        return tulostus.trim();
     }
 }

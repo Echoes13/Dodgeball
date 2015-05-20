@@ -7,21 +7,28 @@ import java.util.Random;
 
 public class PalloKori implements Liikkuva {
     private Random satu;
-    Peli peli;
-    ArrayList<Pallo> pallot;
+    private ArrayList<Pallo> pallot;
+    private int leveys;
+    private int korkeus;
     
-    public PalloKori(Peli peli) {
+    
+    public PalloKori(int leveys, int korkeus) {
         this.satu = new Random();
-        this.peli = peli;
         this.pallot = new ArrayList<Pallo>();
+        this.leveys = leveys;
+        this.korkeus = korkeus;
     }
     
     public void lisaaPeliinPallo() {
-        pallot.add(new Pallo(satu.nextInt(peli.getKorkeus()), peli.getKorkeus(), peli.getLeveys()));
+        pallot.add(new Pallo(satu.nextInt(korkeus), korkeus, leveys));
     }
     
     public int pallojaKorissa() {
         return pallot.size();
+    }
+    
+    public ArrayList<Pallo> getPallot() {
+        return pallot;
     }
 
     @Override
@@ -37,6 +44,6 @@ public class PalloKori implements Liikkuva {
         for(Pallo pallo : pallot) {
             tulostus += pallo.toString() + "\n";
         }
-        return tulostus;
+        return tulostus.trim();
     }
 }

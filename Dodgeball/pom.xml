@@ -35,12 +35,12 @@
                 <version>1.1.4</version>
                 <configuration>
                     <targetClasses>
-                        <param>dodgeballpeli.domain</param>
-                        <param>dodgeballpeli.peli</param>
+                        <param>dodgeballpeli.domain.*</param>
+                        <param>dodgeballpeli.peli.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>dodgeballpeli.domain</param>
-                        <param>dodgeballpeli.peli</param>
+                        <param>dodgeballpeli.domain.*</param>
+                        <param>dodgeballpeli.peli.*</param>
                     </targetTests>
                 </configuration>
             </plugin>

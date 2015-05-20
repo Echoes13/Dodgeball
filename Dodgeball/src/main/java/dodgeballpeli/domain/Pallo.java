@@ -37,6 +37,10 @@ public class Pallo implements Liikkuva {
         }
     }
     
+    public void setSuuntaY(int suunta) {
+        ya = suunta;
+    }
+    
     @Override
     public void liiku() {
         heittoTakaisin();
