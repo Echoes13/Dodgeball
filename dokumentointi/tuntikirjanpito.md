@@ -23,3 +23,7 @@
 #####Ke 20.5.2015
 * 3h
 * Luokkakaavion ja testien tekeminen
+
+##### Ma 25.5.2015
+* 2,5h
+* Piirtoalustan ja näppäimistökuuntelijan luominen, sekä väistäjän reagointi pallon osumiseen

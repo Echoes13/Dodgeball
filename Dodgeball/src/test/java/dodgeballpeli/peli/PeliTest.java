@@ -31,7 +31,7 @@ public class PeliTest {
     
     @Test
     public void getPelaajaToimii() {
-        Vaistaja pelaaja = dodgeball.getPelaaja();
+        Vaistaja pelaaja = dodgeball.haePelaaja();
         assertEquals("[5,5]",pelaaja.toString());
     }
     

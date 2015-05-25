@@ -2,9 +2,11 @@
 package dodgeballpeli.domain;
 
 import dodgeballpeli.peli.Peli;
+import java.awt.Rectangle;
 import java.util.Random;
 
 public class Pallo implements Liikkuva {
+    final private int pallonLeveys = 20;
     int x;
     int xa;
     int y;
@@ -22,6 +24,18 @@ public class Pallo implements Liikkuva {
         this.satu = new Random();
         xa = 1;
         ya = 1;
+    }
+    
+    public int haeX() {
+        return x;
+    }
+    
+    public int haeY() {
+        return y;
+    }
+    
+    public int haeLeveys() {
+        return pallonLeveys;
     }
     
     private void osuuSeinaan() {
@@ -49,8 +63,13 @@ public class Pallo implements Liikkuva {
         y += ya;
     }
     
+    public Rectangle haeRajat() {
+        return new Rectangle(x,y,pallonLeveys,pallonLeveys);
+    }
+    
     @Override
     public String toString() {
         return "(" + x + "," + y + ")";
     }
+
 }

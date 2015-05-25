@@ -9,13 +9,15 @@ import java.util.List;
 
 public class Peli{
     
+    boolean peliJatkuu;
     int leveys;
     int korkeus;
     Vaistaja pelaaja;
     PalloKori pallokori;
     List<Liikkuva> liikkuvatOsat;
 
-    public Peli(int leveys, int korkeus) {
+    public Peli(int leveys, int korkeus) {        
+        this.peliJatkuu = true;
         this.leveys = leveys;
         this.korkeus = korkeus;
         liikkuvatOsat = new ArrayList<Liikkuva>();
@@ -42,8 +44,12 @@ public class Peli{
         return korkeus;
     }
     
-    public Vaistaja getPelaaja() {
+    public Vaistaja haePelaaja() {
         return pelaaja;
+    }
+    
+    public PalloKori haeKori() {
+        return pallokori;
     }
  
     public void etene() {
@@ -61,4 +67,5 @@ public class Peli{
         }
         return tulostus.trim();
     }
+
 }
