@@ -1,18 +1,28 @@
 
 package dodgeballpeli.dodgeball;
 
+import dodgeballpeli.gui.Kayttoliittyma;
 import dodgeballpeli.peli.Peli;
+import javax.swing.SwingUtilities;
 
 public class Main {
     
     public static void main(String[] args) {
-        Peli dodgeball = new Peli(10,10);
+        Peli dodgeball = new Peli(150, 250);
         
-        System.out.println(dodgeball);
+        Kayttoliittyma kali = new Kayttoliittyma(dodgeball);
+        SwingUtilities.invokeLater(kali);
         
-        for (int i=0; i<13; i++) {
-            dodgeball.etene();
-            System.out.println(dodgeball);
+        while (kali.getPaivitettava() == null) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException ex) {
+                System.out.println("Piirtoalustaa ei ole vielä luotu.");
+            }
         }
+
+        dodgeball.setPaivitettava(kali.getPaivitettava());
+        dodgeball.start();
+        
     }
 }

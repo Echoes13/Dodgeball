@@ -1,7 +1,6 @@
 
 package dodgeballpeli.domain;
 
-import dodgeballpeli.peli.Peli;
 import java.awt.Rectangle;
 import java.util.Random;
 
@@ -17,7 +16,7 @@ public class Pallo implements Liikkuva {
     
     
     public Pallo(int heittoPiste, int alaseina, int sivu) {
-        this.x = 0;
+        this.x = -1*pallonLeveys;
         this.y = heittoPiste;
         this.alaseina = alaseina;
         this.sivuraja = sivu;
@@ -39,13 +38,13 @@ public class Pallo implements Liikkuva {
     }
     
     private void osuuSeinaan() {
-        if (y + ya < 0 || y + ya > alaseina) {
+        if (y + ya < 0 || y + ya + pallonLeveys > alaseina) {
             ya *= -1;
         }
     }
     
     public void heittoTakaisin() {
-        if (x < 0 || x > sivuraja) {
+        if (x + pallonLeveys < 0 || x > sivuraja) {
             y = satu.nextInt(alaseina);
             xa *= -1;
         }

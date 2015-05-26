@@ -4,10 +4,14 @@ package dodgeballpeli.peli;
 import dodgeballpeli.domain.Liikkuva;
 import dodgeballpeli.domain.PalloKori;
 import dodgeballpeli.domain.Vaistaja;
+import dodgeballpeli.gui.Paivitettava;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.Timer;
 
-public class Peli{
+public class Peli extends Timer implements ActionListener{
     
     boolean peliJatkuu;
     int leveys;
@@ -15,8 +19,10 @@ public class Peli{
     Vaistaja pelaaja;
     PalloKori pallokori;
     List<Liikkuva> liikkuvatOsat;
+    Paivitettava paivitettava;
 
-    public Peli(int leveys, int korkeus) {        
+    public Peli(int leveys, int korkeus) {  
+        super(10, null);
         this.peliJatkuu = true;
         this.leveys = leveys;
         this.korkeus = korkeus;
@@ -24,6 +30,8 @@ public class Peli{
         luoPelaaja();
         luoPalloKori();
         pallokori.lisaaPeliinPallo();
+        addActionListener(this);
+        setInitialDelay(2000);
     }
     
     private void luoPalloKori() {
@@ -58,6 +66,10 @@ public class Peli{
         }
     }
     
+    public void setPaivitettava(Paivitettava paivitettava) {
+        this.paivitettava = paivitettava;
+    }
+    
     
     @Override
     public String toString() {
@@ -67,5 +79,14 @@ public class Peli{
         }
         return tulostus.trim();
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (pelaaja.osuuPalloon(pallokori)) {
+            return;
+        }
+        etene();
+        paivitettava.paivita();
+        }
 
 }

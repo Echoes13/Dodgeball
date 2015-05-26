@@ -1,7 +1,6 @@
 
 package dodgeballpeli.domain;
 
-import dodgeballpeli.peli.Peli;
 import java.awt.Rectangle;
 
 public class Vaistaja implements Liikkuva {
@@ -17,8 +16,8 @@ public class Vaistaja implements Liikkuva {
     public Vaistaja(int leveys, int korkeus) {
         this.pelinLeveys = leveys;
         this.pelinKorkeus = korkeus;
-        this.x = leveys/2;
-        this.y = leveys/2;
+        this.x = leveys/2-pelaajanLeveys/2;
+        this.y = leveys/2-pelaajanLeveys/2;
         xa = 0;
         ya = 0;
     }
