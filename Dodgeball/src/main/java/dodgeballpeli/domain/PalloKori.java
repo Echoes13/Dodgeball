@@ -20,7 +20,7 @@ public class PalloKori implements Liikkuva {
     }
     
     public void lisaaPeliinPallo() {
-        pallot.add(new Pallo(satu.nextInt(korkeus), korkeus, leveys));
+        pallot.add(new Pallo(satu.nextInt(korkeus-20), korkeus, leveys));
     }
     
     public int pallojaKorissa() {

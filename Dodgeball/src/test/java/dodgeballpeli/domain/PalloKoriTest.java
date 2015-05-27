@@ -15,7 +15,7 @@ public class PalloKoriTest {
     
     @Before
     public void setUp() {
-        kori = new PalloKori(5,5);
+        kori = new PalloKori(100,100);
     }
     
     @Test
@@ -24,17 +24,14 @@ public class PalloKoriTest {
     }
     
     @Test
-    public void palloLoytyyKorista() {
+    public void pallojaLoytyyKorista() {
         kori.lisaaPeliinPallo();
         assertEquals(1,kori.pallojaKorissa());
-    }
-    
-    @Test
-    public void useampiLoytyyKorista() {
+        
         for (int i=0;i<5;i++) {
             kori.lisaaPeliinPallo();
         }
-        assertEquals(5,kori.pallojaKorissa());
+        assertEquals(6,kori.pallojaKorissa());
     }
     
     @Test
@@ -43,13 +40,12 @@ public class PalloKoriTest {
         kori.liiku();
         boolean toimiiko = false;
         
-        for (int i=0; i<6; i++) {
-            for (Pallo pallo : kori.getPallot()) {
-                if (pallo.toString().equals("(1," + i + ")")) {
-                    toimiiko = true;
-                }
+        for (int i=0; i<80; i++) {
+            if (kori.toString().equals("(-19," + i + ")")) {
+               toimiiko = true;
             }
         }
         assertEquals(true,toimiiko);
     }
+    
 }

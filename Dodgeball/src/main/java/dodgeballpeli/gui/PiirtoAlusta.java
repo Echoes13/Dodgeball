@@ -22,7 +22,7 @@ public class PiirtoAlusta extends JPanel implements Paivitettava {
     
     public void piirraPallot(Graphics g) {
         for (Pallo pallo : peli.haeKori().getPallot()) {
-            g.fillOval(pallo.haeX(), pallo.haeY(), pallo.haeLeveys(), pallo.haeLeveys());
+            g.fillOval(pallo.haeX(), pallo.haeY(), pallo.haeHalkaisija(), pallo.haeHalkaisija());
         }
     }
     

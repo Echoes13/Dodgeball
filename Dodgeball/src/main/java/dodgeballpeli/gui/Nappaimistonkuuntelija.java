@@ -31,8 +31,15 @@ public class Nappaimistonkuuntelija implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        pelaaja.setSuuntaX(0);
-        pelaaja.setSuuntaY(0);
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+            pelaaja.setSuuntaX(0);
+        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            pelaaja.setSuuntaX(0);
+        } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+            pelaaja.setSuuntaY(0);
+        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+            pelaaja.setSuuntaY(0);
+        }
     }
     
     

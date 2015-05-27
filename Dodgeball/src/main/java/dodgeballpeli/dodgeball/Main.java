@@ -8,7 +8,7 @@ import javax.swing.SwingUtilities;
 public class Main {
     
     public static void main(String[] args) {
-        Peli dodgeball = new Peli(150, 250);
+        Peli dodgeball = new Peli(200, 300);
         
         Kayttoliittyma kali = new Kayttoliittyma(dodgeball);
         SwingUtilities.invokeLater(kali);

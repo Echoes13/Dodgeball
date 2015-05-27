@@ -2,6 +2,7 @@
 package dodgeballpeli.peli;
 
 import dodgeballpeli.domain.Liikkuva;
+import dodgeballpeli.domain.Pallo;
 import dodgeballpeli.domain.PalloKori;
 import dodgeballpeli.domain.Vaistaja;
 import dodgeballpeli.gui.Paivitettava;
@@ -82,8 +83,10 @@ public class Peli extends Timer implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (pelaaja.osuuPalloon(pallokori)) {
-            return;
+        for (Pallo pallo : pallokori.getPallot()) {
+            if (pelaaja.osuuPalloon(pallo)) {
+                return;
+            }
         }
         etene();
         paivitettava.paivita();

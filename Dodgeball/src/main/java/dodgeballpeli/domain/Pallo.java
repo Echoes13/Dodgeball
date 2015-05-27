@@ -5,7 +5,7 @@ import java.awt.Rectangle;
 import java.util.Random;
 
 public class Pallo implements Liikkuva {
-    final private int pallonLeveys = 20;
+    final private int pallonHalkaisija = 20;
     int x;
     int xa;
     int y;
@@ -16,7 +16,7 @@ public class Pallo implements Liikkuva {
     
     
     public Pallo(int heittoPiste, int alaseina, int sivu) {
-        this.x = -1*pallonLeveys;
+        this.x = -1*pallonHalkaisija;
         this.y = heittoPiste;
         this.alaseina = alaseina;
         this.sivuraja = sivu;
@@ -33,19 +33,19 @@ public class Pallo implements Liikkuva {
         return y;
     }
     
-    public int haeLeveys() {
-        return pallonLeveys;
+    public int haeHalkaisija() {
+        return pallonHalkaisija;
     }
     
     private void osuuSeinaan() {
-        if (y + ya < 0 || y + ya + pallonLeveys > alaseina) {
+        if (y + ya < 0 || y + ya + pallonHalkaisija > alaseina) {
             ya *= -1;
         }
     }
     
     public void heittoTakaisin() {
-        if (x + pallonLeveys < 0 || x > sivuraja) {
-            y = satu.nextInt(alaseina);
+        if (x + pallonHalkaisija < 0 || x > sivuraja) {
+            y = satu.nextInt(alaseina-pallonHalkaisija);
             xa *= -1;
         }
     }
@@ -63,7 +63,7 @@ public class Pallo implements Liikkuva {
     }
     
     public Rectangle haeRajat() {
-        return new Rectangle(x,y,pallonLeveys,pallonLeveys);
+        return new Rectangle(x,y,pallonHalkaisija,pallonHalkaisija);
     }
     
     @Override

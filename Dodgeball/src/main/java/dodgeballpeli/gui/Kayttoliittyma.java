@@ -21,7 +21,7 @@ public class Kayttoliittyma implements Runnable {
     public void run() {
         frame = new JFrame("Dodgeball");
         int leveys = dodgeballpeli.getLeveys();
-        int korkeus = dodgeballpeli.getKorkeus() + 20;
+        int korkeus = dodgeballpeli.getKorkeus() + 22;
 
         frame.setPreferredSize(new Dimension(leveys, korkeus));
 

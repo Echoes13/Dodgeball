@@ -31,3 +31,7 @@
 #####Ti 26.5.2015
 * 1,5h
 * Graafisen käyttöliittymän luominen
+
+#####Ke 27.5.2015
+* 2,5h
+* Testien päivitys ja koodin hiomista

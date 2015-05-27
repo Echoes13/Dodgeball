@@ -42,11 +42,9 @@ public class Vaistaja implements Liikkuva {
         ya = suuntaY;
     }
     
-    public boolean osuuPalloon(PalloKori mahdollisetKohteet) {
-        for (Pallo kohde : mahdollisetKohteet.getPallot()) {
-            if (haeRajat().intersects(kohde.haeRajat())) {
-                return true;
-            }
+    public boolean osuuPalloon(Pallo kohde) {
+        if (haeRajat().intersects(kohde.haeRajat())) {
+            return true;
         }
         return false;
     }
