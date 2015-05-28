@@ -10,19 +10,19 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 
-public class PeliTest {
+public class PeliLogiikkaTest {
     
-    Peli dodgeball;
+    PeliLogiikka dodgeball;
     
     @Before
     public void setUp() {
-        dodgeball = new Peli(100,100);
+        dodgeball = new PeliLogiikka(100,100);
     }
     
     public boolean korinSisalto(int X) {
         boolean toimiiko = false;
         
-        for (int i=1; i<79; i++) {
+        for (int i=0; i<80; i++) {
             if (dodgeball.haeKori().toString().equals("(" + X + "," + i + ")")) {
                toimiiko = true;
             }

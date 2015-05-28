@@ -1,7 +1,7 @@
 
 package dodgeballpeli.domain;
 
-import dodgeballpeli.peli.Peli;
+import dodgeballpeli.peli.PeliLogiikka;
 import java.util.ArrayList;
 import java.util.Random;
 

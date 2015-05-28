@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         Peli dodgeball = new Peli(200, 300);
         
-        Kayttoliittyma kali = new Kayttoliittyma(dodgeball);
+        Kayttoliittyma kali = new Kayttoliittyma(dodgeball.haeLogiikka());
         SwingUtilities.invokeLater(kali);
         
         while (kali.getPaivitettava() == null) {

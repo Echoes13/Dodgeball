@@ -5,15 +5,15 @@ import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
-import dodgeballpeli.peli.Peli;
+import dodgeballpeli.peli.PeliLogiikka;
 
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
-    private Peli dodgeballpeli;
+    private PeliLogiikka dodgeballpeli;
     private PiirtoAlusta piirtoalusta;
 
-    public Kayttoliittyma(Peli dodgeballpeli) {
+    public Kayttoliittyma(PeliLogiikka dodgeballpeli) {
         this.dodgeballpeli = dodgeballpeli;
     }
 

@@ -36,11 +36,12 @@
                 <configuration>
                     <targetClasses>
                         <param>dodgeballpeli.domain.*</param>
-                        <param>dodgeballpeli.peli.*</param>
+                        <param>dodgeballpeli.peli.PeliLogiikka</param>
                     </targetClasses>
                     <targetTests>
                         <param>dodgeballpeli.domain.*</param>
-                        <param>dodgeballpeli.peli.*</param>
+                        <param>dodgeballpeli.peli.PeliLogiikka</param>
+                        <param>dodgeballpeli.peli.PeliLogiikkaTest</param>
                     </targetTests>
                 </configuration>
             </plugin>

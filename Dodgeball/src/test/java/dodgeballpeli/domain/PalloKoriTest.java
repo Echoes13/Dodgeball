@@ -20,7 +20,7 @@ public class PalloKoriTest {
     
     @Test
     public void koriTyhja() {
-        assertEquals(0,kori.pallojaKorissa());
+        assertEquals(0,kori.getPallot().size());
     }
     
     @Test

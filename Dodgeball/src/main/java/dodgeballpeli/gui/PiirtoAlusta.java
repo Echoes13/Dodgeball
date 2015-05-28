@@ -5,13 +5,13 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 import dodgeballpeli.domain.Pallo;
-import dodgeballpeli.peli.Peli;
+import dodgeballpeli.peli.PeliLogiikka;
 
 
 public class PiirtoAlusta extends JPanel implements Paivitettava {
-    private Peli peli;
+    private PeliLogiikka peli;
     
-    public PiirtoAlusta(Peli peli) {
+    public PiirtoAlusta(PeliLogiikka peli) {
         this.peli = peli;
     }
     
