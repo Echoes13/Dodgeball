@@ -6,6 +6,10 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import dodgeballpeli.peli.PeliLogiikka;
+import java.awt.GridLayout;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class Kayttoliittyma implements Runnable {
 
@@ -34,9 +38,25 @@ public class Kayttoliittyma implements Runnable {
     }
 
     public void luoKomponentit(Container container) {
+//        container.setLayout(new GridLayout(1, 2));
+        
         piirtoalusta = new PiirtoAlusta(dodgeballpeli);
-        container.add(piirtoalusta);
         frame.addKeyListener(new Nappaimistonkuuntelija(dodgeballpeli.haePelaaja()));
+//        
+//        JPanel valikko = new JPanel(new GridLayout(4, 1));
+//        JTextField tulos = new JTextField("Score: " + 0);
+//        tulos.setEnabled(false);
+//        JTextField ennatys = new JTextField("Highscore: " + 0);
+//        ennatys.setEnabled(false);
+//        JButton pause = new JButton("Pause");
+//        JButton restart = new JButton("Restart");
+//        
+//        valikko.add(tulos);
+//        valikko.add(pause);
+//        valikko.add(restart);
+//        
+        container.add(piirtoalusta);
+//        container.add(valikko);
     }
     
     public JFrame getFrame() {

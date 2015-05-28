@@ -22,7 +22,7 @@
 
 #####Ke 20.5.2015
 * 3h
-* Luokkakaavion ja testien tekeminen
+* Testien ja määrittelyvaiheen luokkakaavion tekeminen
 
 #####Ma 25.5.2015
 * 2,5h
@@ -35,3 +35,9 @@
 #####Ke 27.5.2015
 * 2,5h
 * Testien päivitys ja koodin hiomista
+
+#####To 28.5.2015
+* 1h
+* Peli-luokan jakaminen kahteen luokkaan
+* 1,5h
+* Pelin vaikeustason nostaminen tietyn ajan kuluttua, sekä testien lisääminen

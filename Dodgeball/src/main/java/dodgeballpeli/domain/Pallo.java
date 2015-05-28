@@ -22,7 +22,7 @@ public class Pallo implements Liikkuva {
         this.sivuraja = sivu;
         this.satu = new Random();
         xa = 1;
-        ya = 1;
+        ya = 1 - satu.nextInt(3);
     }
     
     public int haeX() {
@@ -45,8 +45,8 @@ public class Pallo implements Liikkuva {
     
     public void heittoTakaisin() {
         if (x + pallonHalkaisija < 0 || x > sivuraja) {
-            y = satu.nextInt(alaseina-pallonHalkaisija);
             xa *= -1;
+            ya = 1 - satu.nextInt(3);
         }
     }
     

@@ -40,8 +40,7 @@
                     </targetClasses>
                     <targetTests>
                         <param>dodgeballpeli.domain.*</param>
-                        <param>dodgeballpeli.peli.PeliLogiikka</param>
-                        <param>dodgeballpeli.peli.PeliLogiikkaTest</param>
+                        <param>dodgeballpeli.peli.*</param>
                     </targetTests>
                 </configuration>
             </plugin>

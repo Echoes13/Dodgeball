@@ -36,10 +36,9 @@ public class PeliLogiikkaTest {
         assertEquals(100,dodgeball.getKorkeus());
         assertEquals("[40,40]",dodgeball.haePelaaja().toString());
         assertEquals(true,korinSisalto(-20));
+        assertEquals(0,dodgeball.haeAika());
     }
-    
-    
-    
+        
     @Test
     public void peliEtenee() {
         dodgeball.etene();
@@ -50,7 +49,14 @@ public class PeliLogiikkaTest {
                toimiiko = true;
             }
         }
-        
         assertEquals(true,toimiiko);
+    }
+    
+    @Test
+    public void peliinLisataanPallo() {
+        for (int i=0; i<1200; i++) {
+            dodgeball.etene();
+        }
+        assertEquals(2,dodgeball.haeKori().pallojaKorissa());
     }
 }

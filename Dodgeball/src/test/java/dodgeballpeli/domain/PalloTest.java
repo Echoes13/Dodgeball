@@ -33,12 +33,14 @@ public class PalloTest {
     
     @Test
     public void palloLiikkuu() {
+        pallo.setSuuntaY(1);
         pallo.liiku();
         assertEquals("(-19,41)",pallo.toString());
     }
     
     @Test
     public void pomppaaSeinastaAla() {
+        pallo.setSuuntaY(1);
         for (int i = 0; i < 41; i++) {
             pallo.liiku();            
         }
@@ -56,12 +58,13 @@ public class PalloTest {
     
     @Test
     public void palloHeitetaanTakaisin() {
+        pallo.setSuuntaY(1);
         for (int i=0; i<122; i++) {
             pallo.liiku();
         }
         boolean toimiiko = false;
         
-        for (int i=0; i<80; i++) {
+        for (int i=0; i<3; i++) {
             if (pallo.toString().equals("(100," + i + ")")) {
                 toimiiko = true;
             }

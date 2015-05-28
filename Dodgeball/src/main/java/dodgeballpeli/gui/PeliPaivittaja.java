@@ -1,23 +1,19 @@
 
-package dodgeballpeli.peli;
+package dodgeballpeli.gui;
 
-import dodgeballpeli.domain.Liikkuva;
 import dodgeballpeli.domain.Pallo;
-import dodgeballpeli.domain.PalloKori;
-import dodgeballpeli.domain.Vaistaja;
 import dodgeballpeli.gui.Paivitettava;
+import dodgeballpeli.peli.PeliLogiikka;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.Timer;
 
-public class Peli extends Timer implements ActionListener{
+public class PeliPaivittaja extends Timer implements ActionListener{
     
     PeliLogiikka logiikka;
     Paivitettava paivitettava;
 
-    public Peli(int leveys, int korkeus) {  
+    public PeliPaivittaja(int leveys, int korkeus) {  
         super(10, null);
         this.logiikka = new PeliLogiikka(leveys,korkeus);
         addActionListener(this);
