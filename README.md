@@ -1,2 +1,2 @@
 # Dodgeball
-Peli, jossa väistellään palloja.
+Peli, jossa väistellään sivuilta tulevia palloja. Gotta dodge 'em all!
