@@ -55,7 +55,7 @@ public class Vaistaja implements Liikkuva {
     
     @Override
     public void liiku() {
-        if (x + xa > 0 && x + xa + pelaajanLeveys < pelinLeveys) {
+        if (x + xa > 11 && x + xa + pelaajanLeveys < pelinLeveys - 10) {
             x = x+xa;
         }
         if (y + ya > 0 && y + ya + pelaajanLeveys < pelinKorkeus) {

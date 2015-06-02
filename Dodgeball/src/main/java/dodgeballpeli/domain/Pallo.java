@@ -10,6 +10,7 @@ public class Pallo implements Liikkuva {
     int xa;
     int y;
     int ya;
+    int vauhti;
     private int alaseina;
     private int sivuraja;
     private Random satu;
@@ -21,6 +22,7 @@ public class Pallo implements Liikkuva {
         this.alaseina = alaseina;
         this.sivuraja = sivu;
         this.satu = new Random();
+        this.vauhti = 1;
         xa = 1;
         ya = 1 - satu.nextInt(3);
     }
@@ -46,7 +48,7 @@ public class Pallo implements Liikkuva {
     public void heittoTakaisin() {
         if (x + pallonHalkaisija < 0 || x > sivuraja) {
             xa *= -1;
-            ya = 1 - satu.nextInt(3);
+            ya = (1 - satu.nextInt(3)) * vauhti;
         }
     }
     

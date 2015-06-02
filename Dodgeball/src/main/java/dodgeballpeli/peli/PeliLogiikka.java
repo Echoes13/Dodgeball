@@ -65,7 +65,7 @@ public class PeliLogiikka{
     
     public void nostaVaikeustasoa() {
         if (kulunutAika%1000 == 0) {
-            pallokori.lisaaPeliinPallo();
+            pallokori.lisaaPeliinPallo();                
         }
         kulunutAika++;
     }

@@ -41,3 +41,19 @@
 * Peli-luokan jakaminen kahteen luokkaan
 * 1,5h
 * Pelin vaikeustason nostaminen tietyn ajan kuluttua, sekä testien lisääminen
+* 0,5h
+* Luokkakaavion uusiminen
+
+#####La 30.5.2015
+* 3h
+* Koodikatselmointi projektille *"Another Tetris-clone"*
+
+#####Ma 1.6.2015
+* 20min
+* Suunnittelua projektin lisäyksiä koskien
+
+#####Ti 2.6.2015
+* 20min
+* Suunnittelua ja pelialueen rajojen piirtäminen
+* 1,5h
+* Vauhtikokeilua ja Käyttöliittymään lisäämistä

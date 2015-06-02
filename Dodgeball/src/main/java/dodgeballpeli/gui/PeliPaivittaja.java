@@ -12,12 +12,14 @@ public class PeliPaivittaja extends Timer implements ActionListener{
     
     PeliLogiikka logiikka;
     Paivitettava paivitettava;
+    boolean pause;
 
     public PeliPaivittaja(int leveys, int korkeus) {  
         super(10, null);
         this.logiikka = new PeliLogiikka(leveys,korkeus);
+        this.pause = false;
         addActionListener(this);
-        setInitialDelay(2000);
+        setInitialDelay(1000);
     }
     
     public void setPaivitettava(Paivitettava paivitettava) {
@@ -26,6 +28,18 @@ public class PeliPaivittaja extends Timer implements ActionListener{
     
     public PeliLogiikka haeLogiikka() {
         return logiikka;
+    }
+    
+    public void pauseTaiJatka() {
+        if (pause = true) {
+            pause = false;
+        } else {
+            pause = true;
+        }
+    }
+    
+    public void luoUusiPeli() {
+        logiikka = new PeliLogiikka(logiikka.getLeveys(),logiikka.getKorkeus());
     }
     
     @Override

@@ -30,7 +30,7 @@ public class PalloKori implements Liikkuva {
     public ArrayList<Pallo> getPallot() {
         return pallot;
     }
-
+    
     @Override
     public void liiku() {
         for (Pallo pallo : pallot) {

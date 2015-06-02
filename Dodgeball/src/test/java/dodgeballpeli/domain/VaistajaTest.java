@@ -56,7 +56,7 @@ public class VaistajaTest {
         for (int i = 0; i < 100; i++) {
             pelaaja.liiku();
         }
-        assertEquals("[79,40]",pelaaja.toString());
+        assertEquals("[69,40]",pelaaja.toString());
     }
     
     @Test
@@ -65,7 +65,7 @@ public class VaistajaTest {
         for (int i = 0; i < 100; i++) {
             pelaaja.liiku();
         }
-        assertEquals("[1,40]",pelaaja.toString());
+        assertEquals("[12,40]",pelaaja.toString());
     }
     
     @Test
@@ -93,7 +93,7 @@ public class VaistajaTest {
         for (int i = 0; i < 100; i++) {
             pelaaja.liiku();
         }
-        assertEquals("[79,79]",pelaaja.toString());
+        assertEquals("[69,79]",pelaaja.toString());
     }
     
     @Test

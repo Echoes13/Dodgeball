@@ -14,18 +14,18 @@ import javax.swing.JTextField;
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
-    private PeliLogiikka dodgeballpeli;
+    private PeliPaivittaja dodgeballpeli;
     private PiirtoAlusta piirtoalusta;
 
-    public Kayttoliittyma(PeliLogiikka dodgeballpeli) {
+    public Kayttoliittyma(PeliPaivittaja dodgeballpeli) {
         this.dodgeballpeli = dodgeballpeli;
     }
 
     @Override
     public void run() {
         frame = new JFrame("Dodgeball");
-        int leveys = dodgeballpeli.getLeveys();
-        int korkeus = dodgeballpeli.getKorkeus() + 22;
+        int leveys = dodgeballpeli.haeLogiikka().getLeveys() * 2;
+        int korkeus = dodgeballpeli.haeLogiikka().getKorkeus() + 22;
 
         frame.setPreferredSize(new Dimension(leveys, korkeus));
 
@@ -38,25 +38,32 @@ public class Kayttoliittyma implements Runnable {
     }
 
     public void luoKomponentit(Container container) {
-//        container.setLayout(new GridLayout(1, 2));
+        container.setLayout(new GridLayout(1, 2));
         
-        piirtoalusta = new PiirtoAlusta(dodgeballpeli);
-        frame.addKeyListener(new Nappaimistonkuuntelija(dodgeballpeli.haePelaaja()));
-//        
-//        JPanel valikko = new JPanel(new GridLayout(4, 1));
-//        JTextField tulos = new JTextField("Score: " + 0);
-//        tulos.setEnabled(false);
-//        JTextField ennatys = new JTextField("Highscore: " + 0);
-//        ennatys.setEnabled(false);
-//        JButton pause = new JButton("Pause");
-//        JButton restart = new JButton("Restart");
-//        
-//        valikko.add(tulos);
-//        valikko.add(pause);
-//        valikko.add(restart);
-//        
+        piirtoalusta = new PiirtoAlusta(dodgeballpeli.haeLogiikka());
+        frame.addKeyListener(new Nappaimistonkuuntelija(dodgeballpeli.haeLogiikka().haePelaaja()));
+        
         container.add(piirtoalusta);
-//        container.add(valikko);
+        luoValikko(container);
+    }
+    
+    public void luoValikko(Container container) {
+        JPanel valikko = new JPanel(new GridLayout(4, 1));
+        JTextField tulos = new JTextField("Score: " + 0);
+        tulos.setEnabled(false);
+        JTextField ennatys = new JTextField("Highscore: " + 0);
+        ennatys.setEnabled(false);
+        JButton pause = new JButton("Pause");
+        pause.setEnabled(false);
+        JButton restart = new JButton("Restart");
+        restart.setEnabled(false);
+        
+        valikko.add(tulos);
+        valikko.add(ennatys);
+        valikko.add(pause);
+        valikko.add(restart);
+        
+        container.add(valikko);
     }
     
     public JFrame getFrame() {
