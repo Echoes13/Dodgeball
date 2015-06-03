@@ -1,6 +1,10 @@
 ##Käyttöohjeet
 Olet väistäjä, tässä tapauksessa ruutu, joka väistelee sivuilta tulevia palloja. Pallot pomppivat ylä ja alaseinältä.
 
-Voit liikuttaa väistäjää nuolinäppäimillä.
+Käynnistä peli painamalla **välilyöntiä**.
 
-Uusi pallo lisätään joka kymmenes sekunti.
+Voit liikuttaa väistäjää **nuolinäppäimillä**.
+Voit myös paussata peliä painamalla **välilyöntiä**.
+
+
+Uusi pallo lisätään peliin sadan pisteen välein.

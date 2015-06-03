@@ -28,20 +28,24 @@ public class Kayttoliittyma implements Runnable {
         int korkeus = dodgeballpeli.haeLogiikka().getKorkeus() + 22;
 
         frame.setPreferredSize(new Dimension(leveys, korkeus));
-
+        
+        
+        
+        frame.setLocation(400, 150);
+        
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         luoKomponentit(frame.getContentPane());
 
         frame.pack();
-        frame.setVisible(true);
+        frame.setVisible(true);        
     }
 
     public void luoKomponentit(Container container) {
         container.setLayout(new GridLayout(1, 2));
         
         piirtoalusta = new PiirtoAlusta(dodgeballpeli.haeLogiikka());
-        frame.addKeyListener(new Nappaimistonkuuntelija(dodgeballpeli.haeLogiikka().haePelaaja()));
+        frame.addKeyListener(new Nappaimistonkuuntelija(dodgeballpeli));
         
         container.add(piirtoalusta);
         luoValikko(container);
@@ -49,21 +53,31 @@ public class Kayttoliittyma implements Runnable {
     
     public void luoValikko(Container container) {
         JPanel valikko = new JPanel(new GridLayout(4, 1));
+        
+        asetaTuloskentat(valikko);
+        
+        JButton restart = new JButton("New Game");
+        restart.setEnabled(false);
+        JButton submit = new JButton("Submit Highscore");
+        submit.setEnabled(false);
+        
+        
+        valikko.add(restart);
+        valikko.add(submit);
+        
+        container.add(valikko);
+    }
+    
+    public void asetaTuloskentat(JPanel valikko) {
         JTextField tulos = new JTextField("Score: " + 0);
         tulos.setEnabled(false);
+        dodgeballpeli.setTuloskentta(tulos);
+        
         JTextField ennatys = new JTextField("Highscore: " + 0);
         ennatys.setEnabled(false);
-        JButton pause = new JButton("Pause");
-        pause.setEnabled(false);
-        JButton restart = new JButton("Restart");
-        restart.setEnabled(false);
         
         valikko.add(tulos);
         valikko.add(ennatys);
-        valikko.add(pause);
-        valikko.add(restart);
-        
-        container.add(valikko);
     }
     
     public JFrame getFrame() {

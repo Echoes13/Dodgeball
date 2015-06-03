@@ -1,16 +1,18 @@
 ##Dodgeball-pelin aihemäärittely
 
 ####**Aihe:**
-*Dodgeball*, eli peli jossa pelaaja väistelee palloja. Pelaaja liikuttaa pelissä hahmoansa ja väistelee sivuilta tulevia palloja. Pallojen määrä kasvaa mitä kauemmin pelaaja selviytyy. Peli loppuu siihen että joku palloista osuu pelaajaan.
+Olet yksinäinen opiskelija liikuntasalissa jonka tehtävä on seuraava: Väistä palloja! Ystäväsi ja vihollisesi heittävät palloja salin sivuilta ja yrittävät osua sinuun niillä. Jotkut heittäjistä eivät kuitenkaan oikein tiedä minnepäin kannattaa heittää, joten varaudu myös outouihin heittoihin. Peli päättyy kun joka heittäjistä osuu sinuun pallolla.
 
 ####**Käyttäjät:**
-*Pelaaja*
+*Pelaaja* tai muu vastaava
 
 ####**Pelaajan toiminnot:**
 * *Pelaaja* voi liikuttaa hahmoansa kahdeksaan eri suuntaan.
 * *Pelaaja* näkee missä hahmo ja pallot liikkuvat.
-* *Pelaaja* näkee kuinka kauan on selviytynyt.
+* *Pelaaja* saa pisteitä sen mukaan miten selviytyy.
 
 ####**Pallojen toiminnot:**
-* *Pallot* ilmestyvät joltakin sivulta ja liikkuvat tiettyyn suuntaan.
-* Uusi *Pallo* lisätään peliin joka kymmenes sekunti.
+* *Pallot* heitetään joltakin sivulta ja liikkuvat tiettyyn suuntaan.
+* *Pallot* kimpoavat seinistä.
+* *Pallo* heitetään takaisin samantien sen liikuttua salin yli.
+* Uusi *Pallo* lisätään peliin sadan pisteen välein.

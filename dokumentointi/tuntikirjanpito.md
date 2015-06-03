@@ -57,3 +57,7 @@
 * Suunnittelua ja pelialueen rajojen piirtäminen
 * 1,5h
 * Vauhtikokeilua ja Käyttöliittymään lisäämistä
+
+#####Ke 3.6.2015
+* 1h
+* Pisteiden saaminen kymmenesosasekunnin välein

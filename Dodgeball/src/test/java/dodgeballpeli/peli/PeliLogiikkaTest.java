@@ -36,7 +36,7 @@ public class PeliLogiikkaTest {
         assertEquals(100,dodgeball.getKorkeus());
         assertEquals("[40,40]",dodgeball.haePelaaja().toString());
         assertEquals(true,korinSisalto(-20));
-        assertEquals(0,dodgeball.haeAika());
+        assertEquals(0,dodgeball.haePisteet());
     }
         
     @Test

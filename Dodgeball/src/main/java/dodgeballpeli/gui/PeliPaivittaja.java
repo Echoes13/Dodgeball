@@ -6,18 +6,20 @@ import dodgeballpeli.gui.Paivitettava;
 import dodgeballpeli.peli.PeliLogiikka;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JTextField;
 import javax.swing.Timer;
 
 public class PeliPaivittaja extends Timer implements ActionListener{
     
     PeliLogiikka logiikka;
     Paivitettava paivitettava;
+    JTextField tuloskentta;
     boolean pause;
 
     public PeliPaivittaja(int leveys, int korkeus) {  
         super(10, null);
         this.logiikka = new PeliLogiikka(leveys,korkeus);
-        this.pause = false;
+        this.pause = true;
         addActionListener(this);
         setInitialDelay(1000);
     }
@@ -26,12 +28,16 @@ public class PeliPaivittaja extends Timer implements ActionListener{
         this.paivitettava = paivitettava;
     }
     
+    public void setTuloskentta(JTextField tulos) {
+        this.tuloskentta = tulos;
+    }
+    
     public PeliLogiikka haeLogiikka() {
         return logiikka;
     }
     
     public void pauseTaiJatka() {
-        if (pause = true) {
+        if (pause) {
             pause = false;
         } else {
             pause = true;
@@ -49,8 +55,11 @@ public class PeliPaivittaja extends Timer implements ActionListener{
                 return;
             }
         }
-        logiikka.etene();
-        paivitettava.paivita();
+        if (!pause) {
+            logiikka.etene();
+            paivitettava.paivita();
+            tuloskentta.setText("Score: " + logiikka.haePisteet());
+        }
     }
 
 }

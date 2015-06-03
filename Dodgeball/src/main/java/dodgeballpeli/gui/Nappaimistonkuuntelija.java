@@ -6,10 +6,12 @@ import java.awt.event.KeyListener;
 import dodgeballpeli.domain.Vaistaja;
 
 public class Nappaimistonkuuntelija implements KeyListener {
+    private PeliPaivittaja dodgeball;
     private Vaistaja pelaaja;
     
-    public Nappaimistonkuuntelija(Vaistaja pelaaja) {
-        this.pelaaja = pelaaja;
+    public Nappaimistonkuuntelija(PeliPaivittaja dodgeball) {
+        this.dodgeball = dodgeball;
+        this.pelaaja = dodgeball.haeLogiikka().haePelaaja();
     }
 
     @Override
@@ -18,6 +20,10 @@ public class Nappaimistonkuuntelija implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            dodgeball.pauseTaiJatka();
+        }
+        
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             pelaaja.setSuuntaX(-1);
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {

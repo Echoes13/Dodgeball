@@ -52,8 +52,8 @@ public class PeliLogiikka{
         return pallokori;
     }
     
-    public int haeAika() {
-        return kulunutAika/100;
+    public int haePisteet() {
+        return kulunutAika/10;
     }
  
     public void etene() {
