@@ -7,18 +7,32 @@ import javax.swing.JPanel;
 import dodgeballpeli.domain.Pallo;
 import dodgeballpeli.peli.PeliLogiikka;
 
-
+/**
+  * Luokka joka piirtää pelin tapahtumat
+  * Luokka laajentaa luokkaa JPanel ja toteuttaa
+  * rajapinnan Paivitettava
+  */  
 public class PiirtoAlusta extends JPanel implements Paivitettava {
+    
+/**
+  * @param peli Pelin logiikka
+  */      
     private PeliLogiikka peli;
     
+/**
+  * Konstruktorissa asetetaan pelin logiikka alustalle
+  * 
+  * @param peli pelin logiikka
+  */      
     public PiirtoAlusta(PeliLogiikka peli) {
         this.peli = peli;
     }
     
-    /**
-     *
-     * @param g
-     */
+/**
+  * Metodissa piirretään pelialue
+  * 
+  * @param g piirtäjä
+  */
     public void piirraRajat(Graphics g){
         g.setColor(Color.LIGHT_GRAY);
         g.drawRect(10, 0, peli.getLeveys()-20, peli.getKorkeus());
@@ -27,12 +41,22 @@ public class PiirtoAlusta extends JPanel implements Paivitettava {
         g.drawOval(peli.getLeveys()/2 - 30, peli.getKorkeus()/2 - 30, 60, 60);
     }
     
+/**
+  * Metodissa piirretään pelaajahahmo
+  * 
+  * @param g piirtäjä
+  */    
     public void piirraPelaaja(Graphics g) {
         g.setColor(Color.BLACK);
         int pelaajaLeveys = peli.haePelaaja().haeLeveys();
         g.fillRect(peli.haePelaaja().haeX(),peli.haePelaaja().haeY(), pelaajaLeveys, pelaajaLeveys);
     }
-    
+
+/**
+  * Metodissa piirretään pelin pallot
+  * 
+  * @param g piirtäjä
+  */    
     public void piirraPallot(Graphics g) {
         g.setColor(Color.RED);
         for (Pallo pallo : peli.haeKori().getPallot()) {
@@ -40,6 +64,11 @@ public class PiirtoAlusta extends JPanel implements Paivitettava {
         }
     }
     
+/**
+  * Metodissa piirretään kaikki pelin osat
+  * 
+  * @param g piirtäjä
+  */    
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -48,6 +77,9 @@ public class PiirtoAlusta extends JPanel implements Paivitettava {
         piirraPallot(g);
     }
 
+/**
+  * Metodi päivittää kuvaa muuttuneeseen tilanteeseen
+  */    
     @Override
     public void paivita() {
         repaint();

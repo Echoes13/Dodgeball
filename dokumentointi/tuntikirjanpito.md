@@ -61,3 +61,5 @@
 #####Ke 3.6.2015
 * 1h
 * Pisteiden saaminen kymmenesosasekunnin välein
+* 20min
+* Dokumentoinnin päivittäminen
