@@ -63,3 +63,9 @@
 * Pisteiden saaminen kymmenesosasekunnin välein
 * 20min
 * Dokumentoinnin päivittäminen
+* 5h
+* Sekvenssikaavioiden ja JavaDocsin laatiminen
+
+#####To 4.6.2015
+* 30min
+* Sekvenssikaavion laatiminen

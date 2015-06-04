@@ -34,9 +34,13 @@ public class PiirtoAlusta extends JPanel implements Paivitettava {
   * @param g piirtäjä
   */
     public void piirraRajat(Graphics g){
-        g.setColor(Color.LIGHT_GRAY);
+        g.setColor(Color.ORANGE);
+        g.fillRect(0, 0, peli.getLeveys(), peli.getKorkeus());
+        g.setColor(Color.BLACK);
         g.drawRect(10, 0, peli.getLeveys()-20, peli.getKorkeus());
         g.drawRect(0, 0, peli.getLeveys(), peli.getKorkeus());
+        g.drawRect(peli.getLeveys()/2 - 40, 0, 80, 30);
+        g.drawRect(peli.getLeveys()/2 - 40, peli.getKorkeus()-30, 80, 30);
         g.drawLine(10, peli.getKorkeus()/2, peli.getLeveys()-10, peli.getKorkeus()/2);
         g.drawOval(peli.getLeveys()/2 - 30, peli.getKorkeus()/2 - 30, 60, 60);
     }
@@ -47,7 +51,7 @@ public class PiirtoAlusta extends JPanel implements Paivitettava {
   * @param g piirtäjä
   */    
     public void piirraPelaaja(Graphics g) {
-        g.setColor(Color.BLACK);
+        g.setColor(Color.DARK_GRAY);
         int pelaajaLeveys = peli.haePelaaja().haeLeveys();
         g.fillRect(peli.haePelaaja().haeX(),peli.haePelaaja().haeY(), pelaajaLeveys, pelaajaLeveys);
     }

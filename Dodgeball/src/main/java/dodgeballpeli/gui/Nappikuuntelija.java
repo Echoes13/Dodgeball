@@ -1,12 +1,12 @@
 
 package dodgeballpeli.gui;
 
-import dodgeballpeli.peli.PeliLogiikka;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 /**
+  * NAPIT EIVÄT TOIMI VIELÄ!
   * Luokka joka reagoi painettuihin nappeihin jotka
   * löytyvät graafisesta käyttöliittymästä
   * Luokka toteuttaa rajapinnan ActionListener

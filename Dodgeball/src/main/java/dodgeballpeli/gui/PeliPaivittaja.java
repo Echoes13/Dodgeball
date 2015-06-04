@@ -87,7 +87,6 @@ public class PeliPaivittaja extends Timer implements ActionListener{
   */    
     public void luoUusiPeli() {
         logiikka = new PeliLogiikka(logiikka.getLeveys(),logiikka.getKorkeus());
-        
     }
     
 /**

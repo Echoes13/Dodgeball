@@ -113,7 +113,7 @@ public class Kayttoliittyma implements Runnable {
         tulos.setEnabled(false);
         dodgeballpeli.setTuloskentta(tulos);
         
-        JTextField ennatys = new JTextField("Highscore: " + 0);
+        JTextField ennatys = new JTextField("Napit eivät toimi vielä");
         ennatys.setEnabled(false);
         
         valikko.add(tulos);
