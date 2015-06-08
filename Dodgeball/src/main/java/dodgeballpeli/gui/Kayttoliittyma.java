@@ -5,9 +5,8 @@ import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
-import dodgeballpeli.peli.PeliLogiikka;
 import java.awt.GridLayout;
-import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -24,7 +23,7 @@ public class Kayttoliittyma implements Runnable {
   * @param piirtoalusta Pelin piirtoalusta
   */    
     private JFrame frame;
-    private PeliPaivittaja dodgeballpeli;
+    private PeliValvoja dodgeballpeli;
     private PiirtoAlusta piirtoalusta;
 
 /**
@@ -32,7 +31,7 @@ public class Kayttoliittyma implements Runnable {
   * 
   * @param dodgeballpeli pelin päivittäjä
   */    
-    public Kayttoliittyma(PeliPaivittaja dodgeballpeli) {
+    public Kayttoliittyma(PeliValvoja dodgeballpeli) {
         this.dodgeballpeli = dodgeballpeli;
     }
 
@@ -75,49 +74,49 @@ public class Kayttoliittyma implements Runnable {
         frame.addKeyListener(new Nappaimistonkuuntelija(dodgeballpeli));
         
         container.add(piirtoalusta);
-        luoValikko(container);
+        luoInfo(container);
     }
     
 /**
-  * Metodi luo valikon johon kuuluu pistekentät ja
-  * napit josta voi aloittaa uuden pelin ja lisätä
-  * tuloksensa Highscore-listalle
+  * Metodi luo valikon johon kuuluu tuloskentät ja ruutu
+  * jossa lukee pelin käyttöohjeet
   * 
   * @param container käyttöliittymän ruutu
   */    
-    public void luoValikko(Container container) {
-        JPanel valikko = new JPanel(new GridLayout(4, 1));
+    public void luoInfo(Container container) {
+        JPanel info = new JPanel(new GridLayout(2, 1));
         
-        asetaTuloskentat(valikko);
+        asetaTuloskentat(info);
         
-        JButton restart = new JButton("New Game");
-        restart.setEnabled(false);
-        JButton submit = new JButton("Submit Highscore");
-        submit.setEnabled(false);
+        JLabel aputeksti = new JLabel("<html> Ohjaa opiskelijaa nuolinäppäimillä.<br>"
+                + "Voit paussata pelin painamalla välilyöntiä. "
+                + "Pelin loputtua voit aloittaa uuden pelin painamalla "
+                + "enteriä.");
+        aputeksti.setEnabled(false);
+        info.add(aputeksti);
         
-        
-        valikko.add(restart);
-        valikko.add(submit);
-        
-        container.add(valikko);
+        container.add(info);
     }
     
 /**
   * Metodi luo tekstikentät joista näkyy pisteet ja
-  * asettaa nykyisen tuloskentän myös päivittäjälle
+  * asettaa nykyisen tuloskentän myös valvojalle
   * 
-  * @param valikko valikko johon kentät asetetaan
+  * @param info ruutu johon kentät asetetaan
   */    
-    public void asetaTuloskentat(JPanel valikko) {
+    public void asetaTuloskentat(JPanel info) {
+        JPanel tuloskentat = new JPanel(new GridLayout(2,1));
+        
         JTextField tulos = new JTextField("Score: " + 0);
-        tulos.setEnabled(false);
-        dodgeballpeli.setTuloskentta(tulos);
-        
-        JTextField ennatys = new JTextField("Napit eivät toimi vielä");
+        tulos.setEnabled(false);        
+        JTextField ennatys = new JTextField("Highscore: " + 0);
         ennatys.setEnabled(false);
-        
-        valikko.add(tulos);
-        valikko.add(ennatys);
+                
+        dodgeballpeli.setTuloskentat(tulos,ennatys);
+
+        tuloskentat.add(tulos);
+        tuloskentat.add(ennatys);
+        info.add(tuloskentat);
     }
     
 /**

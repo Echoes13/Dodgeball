@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 import dodgeballpeli.domain.Pallo;
 import dodgeballpeli.peli.PeliLogiikka;
+import java.awt.Font;
 
 /**
   * Luokka joka piirtää pelin tapahtumat
@@ -27,6 +28,7 @@ public class PiirtoAlusta extends JPanel implements Paivitettava {
     public PiirtoAlusta(PeliLogiikka peli) {
         this.peli = peli;
     }
+    
     
 /**
   * Metodissa piirretään pelialue
@@ -69,6 +71,32 @@ public class PiirtoAlusta extends JPanel implements Paivitettava {
     }
     
 /**
+  * Metodissa piirretään että peli on pausella
+  * 
+  * @param g piirtäjä
+  */    
+    public void piirraPause(Graphics g) {
+        if(peli.getPause()) {
+            g.setColor(Color.BLUE);
+            g.setFont(new Font("Serif", Font.PLAIN, 20));
+            g.drawString("PAUSE", 70, 80);
+        }
+    } 
+    
+/**
+  * Metodissa piirretään pelin pallot
+  * 
+  * @param g piirtäjä
+  */    
+    public void piirraLose(Graphics g) {
+        if(peli.getLose()) {
+            g.setColor(Color.BLACK);
+            g.setFont(new Font("Serif", Font.PLAIN, 36));
+            g.drawString("YOU LOSE", 12, 100);
+        }
+    }     
+    
+/**
   * Metodissa piirretään kaikki pelin osat
   * 
   * @param g piirtäjä
@@ -79,8 +107,20 @@ public class PiirtoAlusta extends JPanel implements Paivitettava {
         piirraRajat(g);
         piirraPelaaja(g);
         piirraPallot(g);
+        piirraPause(g);
+        piirraLose(g);
     }
-
+    
+/**
+  * Metodi asettaa piirtoalustalle uuden pelin piirrettäväksi
+  * 
+  * @param uusiPeli uuden pelin logiikka
+  */
+    @Override
+    public void setNewGame(PeliLogiikka uusiPeli) {
+        this.peli = uusiPeli;
+    }  
+    
 /**
   * Metodi päivittää kuvaa muuttuneeseen tilanteeseen
   */    

@@ -19,33 +19,36 @@ public class PeliLogiikkaTest {
         dodgeball = new PeliLogiikka(100,100);
     }
     
-    public boolean korinSisalto(int X) {
-        boolean toimiiko = false;
-        
-        for (int i=0; i<80; i++) {
-            if (dodgeball.haeKori().toString().equals("(" + X + "," + i + ")")) {
-               toimiiko = true;
-            }
-        }
-        return toimiiko;
-    }
     
     @Test
     public void hakeminenOnnistuu() {
         assertEquals(100,dodgeball.getLeveys());
         assertEquals(100,dodgeball.getKorkeus());
         assertEquals("[40,40]",dodgeball.haePelaaja().toString());
-        assertEquals(true,korinSisalto(-20));
+        assertEquals(0,dodgeball.haeKori().pallojaKorissa());
         assertEquals(0,dodgeball.haePisteet());
+        assertEquals(false,dodgeball.getLose());
+        assertEquals(false,dodgeball.getPause());
     }
-        
+    
+    @Test
+    public void pauseJaLose() {
+        dodgeball.setLose(true);
+        assertEquals(true,dodgeball.getLose());
+        dodgeball.setLose(false);
+        dodgeball.setPause(true);
+        assertEquals(true,dodgeball.getPause());
+    }
+    
+    
     @Test
     public void peliEtenee() {
+        dodgeball.haePelaaja().setSuuntaX(1);
         dodgeball.etene();
         boolean toimiiko = false;
         
         for (int i=1; i<79; i++) {
-            if (dodgeball.toString().equals(dodgeball.haePelaaja().toString() + "\n" + "(-19," + i + ")")) {
+            if (dodgeball.toString().equals("[41,40]" + "\n" + "(-20," + i + ")")) {
                toimiiko = true;
             }
         }
@@ -58,5 +61,13 @@ public class PeliLogiikkaTest {
             dodgeball.etene();
         }
         assertEquals(2,dodgeball.haeKori().pallojaKorissa());
+    }
+    
+    @Test
+    public void pisteitaTulee() {
+        for (int i=0; i<10; i++) {
+            dodgeball.etene();
+        }
+        assertEquals(1,dodgeball.haePisteet());
     }
 }

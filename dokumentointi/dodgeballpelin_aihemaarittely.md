@@ -10,6 +10,8 @@ Olet yksinäinen opiskelija liikuntasalissa jonka tehtävä on seuraava: Väist�
 * *Pelaaja* voi liikuttaa hahmoansa kahdeksaan eri suuntaan.
 * *Pelaaja* näkee missä hahmo ja pallot liikkuvat.
 * *Pelaaja* saa pisteitä sen mukaan miten selviytyy.
+* *Pelaaja* voi asettaa pelin pauselle.
+* *Pelaaja* voi aloittaa uuden pelin hävittyään tai pausen aikana.
 
 ####**Pallojen toiminnot:**
 * *Pallot* heitetään joltakin sivulta ja liikkuvat tiettyyn suuntaan.

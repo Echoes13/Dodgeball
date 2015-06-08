@@ -41,7 +41,7 @@
 * Peli-luokan jakaminen kahteen luokkaan
 * 1,5h
 * Pelin vaikeustason nostaminen tietyn ajan kuluttua, sekä testien lisääminen
-* 0,5h
+* 30min
 * Luokkakaavion uusiminen
 
 #####La 30.5.2015
@@ -69,3 +69,11 @@
 #####To 4.6.2015
 * 30min
 * Sekvenssikaavion laatiminen
+
+#####Pe 5.6.2015
+* 4h
+* Pelin päivittäjän uudelleenmäärittäminen päivittävään ja valvovaan luokkaan, sekä nappien poisto. Testien korjausta ja ulkonäön siistimistä.
+
+#####Ma 8.6.2015
+* 30min
+* Luokkakaavion päivittäminen

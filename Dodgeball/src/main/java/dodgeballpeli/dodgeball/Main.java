@@ -2,13 +2,13 @@
 package dodgeballpeli.dodgeball;
 
 import dodgeballpeli.gui.Kayttoliittyma;
-import dodgeballpeli.gui.PeliPaivittaja;
+import dodgeballpeli.gui.PeliValvoja;
 import javax.swing.SwingUtilities;
 
 public class Main {
     
     public static void main(String[] args) {
-        PeliPaivittaja dodgeball = new PeliPaivittaja(200, 300);
+        PeliValvoja dodgeball = new PeliValvoja(200, 300);
         
         Kayttoliittyma kali = new Kayttoliittyma(dodgeball);
         SwingUtilities.invokeLater(kali);
@@ -22,7 +22,7 @@ public class Main {
         }
 
         dodgeball.setPaivitettava(kali.getPaivitettava());
-        dodgeball.start();
+        dodgeball.aloitaPeli();
         
     }
 }

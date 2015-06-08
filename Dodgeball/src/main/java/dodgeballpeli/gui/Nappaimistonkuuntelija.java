@@ -16,7 +16,7 @@ public class Nappaimistonkuuntelija implements KeyListener {
   * @param dodgeball Pelin päivittäjä joka pitää pelin käynnissä
   * @param pelaaja Pelin pelaajahahmo
   */      
-    private PeliPaivittaja dodgeball;
+    private PeliValvoja dodgeball;
     private Vaistaja pelaaja;
     
 /**
@@ -25,7 +25,7 @@ public class Nappaimistonkuuntelija implements KeyListener {
   * 
   * @param dodgeball pelin päivittäjä
   */      
-    public Nappaimistonkuuntelija(PeliPaivittaja dodgeball) {
+    public Nappaimistonkuuntelija(PeliValvoja dodgeball) {
         this.dodgeball = dodgeball;
         this.pelaaja = dodgeball.haeLogiikka().haePelaaja();
     }
@@ -42,6 +42,7 @@ public class Nappaimistonkuuntelija implements KeyListener {
 /**
   * Metodi joka reagoi painettuihin näppäimiin seuraavasti
   * Välilyönnistä paussaa pelin
+  * Enteristä aloittaa uuden pelin
   * Vasemmasta nuolinäppäimestä liikuttaa vasemmalle
   * Oikeasta nuolinäppäimestä liikuttaa oikealle jne
   * 
@@ -50,7 +51,14 @@ public class Nappaimistonkuuntelija implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            dodgeball.pauseTaiJatka();
+            dodgeball.haeEdistaja().pauseTaiJatka();
+        }
+        
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (dodgeball.haeEdistaja().pausella()) {    
+                dodgeball.luoUusiPeli();
+                this.pelaaja = dodgeball.haeLogiikka().haePelaaja();
+            }
         }
         
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {

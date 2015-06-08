@@ -5,7 +5,6 @@ import dodgeballpeli.domain.Liikkuva;
 import dodgeballpeli.domain.PalloKori;
 import dodgeballpeli.domain.Vaistaja;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
   * Luokka joka käsittelee pelissä tapahtuvia sisäisiä toimintoja
@@ -16,6 +15,8 @@ public class PeliLogiikka{
   * @param leveys Pelialueen oikeanpuoleinen reuna
   * @param korkeus Pelialueen alareuna
   * @param kulunutAika Sadasosa-sekuntien määrä siitä että peli alkoi
+  * @param pause Merkintä siitä että peli on pausella
+  * @param gameOver Merkintä siitä että peli on hävitty
   * @param pelaaja Pelaajahahmo joka liitetään kyseiseen peliin
   * @param pallokori Kori joka käsittelee pelissä olevia palloja
   * @param liikkuvatOsat Pelissä olevat Liikkuvat oliot
@@ -23,13 +24,16 @@ public class PeliLogiikka{
     final private int leveys;
     final private int korkeus;
     private int kulunutAika;
+    private boolean pause;
+    private boolean gameOver;
     private Vaistaja pelaaja;
     private PalloKori pallokori;
-    private List<Liikkuva> liikkuvatOsat;
+    private ArrayList<Liikkuva> liikkuvatOsat;
 
 /**
   * Konstruktorissa asetetaan pelialueen reunat, nollataan
   * laskuri ja luodaan liikkuvat osat
+  * Asetetaan myös että peli ei ole hävitty tai pausella
   * 
   * @param leveys pelialueen oikeanpuoleinen reuna
   * @param korkeus pelialueen alareuna
@@ -41,6 +45,8 @@ public class PeliLogiikka{
         liikkuvatOsat = new ArrayList<Liikkuva>();
         luoPelaaja();
         luoPalloKori();
+        this.pause = false;
+        this.gameOver = false;
     }
 /**
   * Metodi joka luo pelin PalloKorin ja lisää sen
@@ -77,6 +83,42 @@ public class PeliLogiikka{
     public int getKorkeus() {
         return korkeus;
     }
+   
+/**
+  * Metodi asettaa pelin pauselle
+  * 
+  * @param pause peli on pausella
+  */       
+    public void setPause(boolean pause) {
+        this.pause = pause;
+    }  
+    
+/**
+  * Metodi asettaa pelin hävityksi
+  * 
+  * @param havio peli on pausella
+  */       
+    public void setLose(boolean havio) {
+        this.gameOver = havio;
+    }     
+    
+/**
+  * Metodi joka palauttaa pelin pause-tilanteen
+  * 
+  * @return peli on pausella
+  */       
+    public boolean getPause() {
+        return pause;
+    }
+    
+/**
+  * Metodi joka palauttaa pelin häviön
+  * 
+  * @return peli on hävitty
+  */       
+    public boolean getLose() {
+        return gameOver;
+    }    
     
 /**
   * Metodi joka palauttaa pelin pelaajahahmon
