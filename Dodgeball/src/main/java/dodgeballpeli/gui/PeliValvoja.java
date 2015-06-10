@@ -95,7 +95,8 @@ public class PeliValvoja{
     }       
     
 /**
-  * Metodi joka luo uuden pelin
+  * Metodi joka luo uuden pelin ja päivittää ennätystuloksen
+  * jos on tarpeen
   */    
     public void luoUusiPeli() {
         uusiEnnatys();
@@ -123,7 +124,7 @@ public class PeliValvoja{
   * pelin edistäjän
   */     
     public void aloitaPeli() {
-        this.edistaja = new PeliEdistaja(this,logiikka,paivitettava);
+        this.edistaja = new PeliEdistaja(this);
         edistaja.start();
     }
 

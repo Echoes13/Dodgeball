@@ -29,14 +29,12 @@ public class PeliEdistaja extends Timer implements ActionListener{
   * parametrit pelin pyörittämistä varten
   * 
   * @param dodgeballpeli pelin valvoja pisteiden lisäämiseen
-  * @param logiikka pelin logiikka
-  * @param piirtoalusta pelin piirtoalusta
   */    
-    public PeliEdistaja(PeliValvoja dodgeballpeli, PeliLogiikka logiikka, Paivitettava piirtoalusta) {
+    public PeliEdistaja(PeliValvoja dodgeballpeli) {
         super(10,null);
         this.dodgeball = dodgeballpeli;
-        this.logiikka = logiikka;
-        this.piirtoalusta = piirtoalusta;
+        this.logiikka = dodgeballpeli.haeLogiikka();
+        this.piirtoalusta = dodgeballpeli.haePaivitettava();
         this.pause = false;
         addActionListener(this);
         setInitialDelay(1000);

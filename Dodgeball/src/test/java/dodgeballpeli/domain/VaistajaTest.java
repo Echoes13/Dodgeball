@@ -15,39 +15,39 @@ public class VaistajaTest {
     
     @Before
     public void setUp() {
-        pelaaja = new Vaistaja(100,100);
+        pelaaja = new Vaistaja(100,150);
     }
     
     @Test
     public void hakeminenOnnistuu() {
         assertEquals(40,pelaaja.haeX());
-        assertEquals(40,pelaaja.haeY());
+        assertEquals(65,pelaaja.haeY());
         assertEquals(20,pelaaja.haeLeveys());
     }
     
     @Test
     public void vaistajaOikeassaKohtaa() {
-        assertEquals("[40,40]",pelaaja.toString());
+        assertEquals("[40,65]",pelaaja.toString());
     }
     
     @Test
     public void vaistajaEiLiiku() {
         pelaaja.liiku();
-        assertEquals("[40,40]",pelaaja.toString());
+        assertEquals("[40,65]",pelaaja.toString());
     }
     
     @Test
     public void vaistajanSuunnanAsettaminenX() {
         pelaaja.setSuuntaX(1);
         pelaaja.liiku();
-        assertEquals("[41,40]",pelaaja.toString());
+        assertEquals("[41,65]",pelaaja.toString());
     }
     
     @Test
     public void vaistajanSuunnanAsettaminenY() {
         pelaaja.setSuuntaY(1);
         pelaaja.liiku();
-        assertEquals("[40,41]",pelaaja.toString());
+        assertEquals("[40,66]",pelaaja.toString());
     }
     
     @Test
@@ -56,7 +56,7 @@ public class VaistajaTest {
         for (int i = 0; i < 100; i++) {
             pelaaja.liiku();
         }
-        assertEquals("[69,40]",pelaaja.toString());
+        assertEquals("[69,65]",pelaaja.toString());
     }
     
     @Test
@@ -65,7 +65,7 @@ public class VaistajaTest {
         for (int i = 0; i < 100; i++) {
             pelaaja.liiku();
         }
-        assertEquals("[12,40]",pelaaja.toString());
+        assertEquals("[12,65]",pelaaja.toString());
     }
     
     @Test
@@ -74,7 +74,7 @@ public class VaistajaTest {
         for (int i = 0; i < 100; i++) {
             pelaaja.liiku();
         }
-        assertEquals("[40,79]",pelaaja.toString());
+        assertEquals("[40,129]",pelaaja.toString());
     }
     
     @Test
@@ -93,19 +93,19 @@ public class VaistajaTest {
         for (int i = 0; i < 100; i++) {
             pelaaja.liiku();
         }
-        assertEquals("[69,79]",pelaaja.toString());
+        assertEquals("[69,129]",pelaaja.toString());
     }
     
     @Test
     public void palloEiOsuuVaistajaan() {
-        Pallo pallo = new Pallo(40,100,100);
+        Pallo pallo = new Pallo(65,100,150);
         pallo.liiku();
         assertEquals(false,pelaaja.osuuPalloon(pallo));
     }
     
     @Test
     public void palloOsuuVaistajaan() {
-        Pallo pallo = new Pallo(40,100,100);
+        Pallo pallo = new Pallo(65,100,150);
         pallo.setSuuntaY(0);
         for (int i = 0; i < 51; i++) {
             pallo.liiku();

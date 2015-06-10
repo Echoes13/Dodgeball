@@ -1,7 +1,6 @@
 
 package dodgeballpeli.peli;
 
-import dodgeballpeli.domain.Vaistaja;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,15 +15,15 @@ public class PeliLogiikkaTest {
     
     @Before
     public void setUp() {
-        dodgeball = new PeliLogiikka(100,100);
+        dodgeball = new PeliLogiikka(100,150);
     }
     
     
     @Test
     public void hakeminenOnnistuu() {
         assertEquals(100,dodgeball.getLeveys());
-        assertEquals(100,dodgeball.getKorkeus());
-        assertEquals("[40,40]",dodgeball.haePelaaja().toString());
+        assertEquals(150,dodgeball.getKorkeus());
+        assertEquals("[40,65]",dodgeball.haePelaaja().toString());
         assertEquals(0,dodgeball.haeKori().pallojaKorissa());
         assertEquals(0,dodgeball.haePisteet());
         assertEquals(false,dodgeball.getLose());
@@ -47,8 +46,8 @@ public class PeliLogiikkaTest {
         dodgeball.etene();
         boolean toimiiko = false;
         
-        for (int i=1; i<79; i++) {
-            if (dodgeball.toString().equals("[41,40]" + "\n" + "(-20," + i + ")")) {
+        for (int i=1; i<129; i++) {
+            if (dodgeball.toString().equals("[41,65]" + "\n" + "(-20," + i + ")")) {
                toimiiko = true;
             }
         }
