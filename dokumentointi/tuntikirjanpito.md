@@ -77,3 +77,13 @@
 #####Ma 8.6.2015
 * 30min
 * Luokkakaavion päivittäminen
+
+#####Ti 9.6.2015
+* 1,5h
+* Koodin hiomista ja dokumenttien päivittämistä
+
+#####Ke 10.6.2015
+* 1h
+* Sekvenssikaavioiden päivitys ja lisäys
+* 2h
+* Koodikatselmointi projektille *"KurssiKirjaajaKalenteri"*
