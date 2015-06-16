@@ -18,3 +18,8 @@ Olet yksinäinen opiskelija liikuntasalissa jonka tehtävä on seuraava: Väist�
 * *Pallot* kimpoavat seinistä.
 * *Pallo* heitetään takaisin samantien sen liikuttua salin yli.
 * Uusi *Pallo* lisätään peliin sadan pisteen välein.
+
+
+
+####**Ohjelman rakenne**:
+Ohjelma aloittaa luomalla *PeliValvoja*-olion, joka luo pelit ja välittää tietoja, sekä *Käyttöliittymän*. *PeliValvoja* luo *PeliEdistäjä*-olion joka käyttää valvojalta saamaansa *PeliLogiikka*-oliota. *PeliLogiikkaan* kuuluu myös *pallot*, sekä *väistäjä*, jota *Näppäimistönkuuntelija* ohjaa. PeliEdistäjä saa PeliLogiikan etenemään, ja pitää myös huolen siitä että pelialustan piirtäjä päivittää jatkuvasti tilannetta. Kun peli hävitään, *PeliEdistäjä*-olio lopettaa toimintansa. Uuden pelin alkaessa *PeliValvoja* korvaa vanhan *PeliLogiikan* ja -*Edistäjän* uusilla olioilla.

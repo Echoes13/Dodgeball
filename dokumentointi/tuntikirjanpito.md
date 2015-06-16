@@ -87,3 +87,7 @@
 * Sekvenssikaavioiden päivitys ja lisäys
 * 2h
 * Koodikatselmointi projektille *"KurssiKirjaajaKalenteri"*
+
+#####Ti 16.6.2015
+* 1h
+* Viimeisen dokumentoinnin hoitaminen ja palautus

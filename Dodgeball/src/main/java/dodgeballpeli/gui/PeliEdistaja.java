@@ -12,13 +12,7 @@ import javax.swing.Timer;
   * ja päivittämällä piirtoalustaa
   */
 public class PeliEdistaja extends Timer implements ActionListener{
-    
-/**
-  * @param dodgeball Valvoja joka lisää pisteitä
-  * @param logiikka Pelin logiikka
-  * @param pause Merkintä siitä onko peli pausella
-  * @param piirtoalusta Pelin piirtoalusta
-  */    
+   
     private PeliValvoja dodgeball;
     private PeliLogiikka logiikka;
     private boolean pause;

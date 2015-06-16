@@ -14,10 +14,7 @@ import java.awt.Font;
   * rajapinnan Paivitettava
   */  
 public class PiirtoAlusta extends JPanel implements Paivitettava {
-    
-/**
-  * @param peli Pelin logiikka
-  */      
+  
     private PeliLogiikka peli;
     
 /**
@@ -79,7 +76,7 @@ public class PiirtoAlusta extends JPanel implements Paivitettava {
         if(peli.getPause()) {
             g.setColor(Color.BLUE);
             g.setFont(new Font("Serif", Font.PLAIN, 20));
-            g.drawString("PAUSE", 70, 80);
+            g.drawString("PAUSE", peli.getLeveys()/2 - peli.getLeveys()/6, 80);
         }
     } 
     
@@ -91,8 +88,8 @@ public class PiirtoAlusta extends JPanel implements Paivitettava {
     public void piirraLose(Graphics g) {
         if(peli.getLose()) {
             g.setColor(Color.BLACK);
-            g.setFont(new Font("Serif", Font.PLAIN, 36));
-            g.drawString("YOU LOSE", 12, 100);
+            g.setFont(new Font("Serif", Font.PLAIN, peli.haePelaaja().haeLeveys() + 10));
+            g.drawString("YOU LOSE", peli.getLeveys()/12, peli.getKorkeus()/3);
         }
     }     
     

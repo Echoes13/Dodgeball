@@ -1,7 +1,7 @@
 ##Käyttöohjeet
-Olet väistäjä, tässä tapauksessa ruutu, joka väistelee sivuilta tulevia palloja. Pallot pomppivat ylä ja alaseinältä.
+Aloita peli avaamalla pelitiedosto, peli alkaa heti!
 
-Käynnistä peli painamalla **välilyöntiä**.
+Olet väistäjä, tässä tapauksessa ruutu, joka väistelee sivuilta tulevia palloja. Pallot pomppivat ylä ja alaseinältä.
 
 Voit liikuttaa väistäjää **nuolinäppäimillä**.
 Voit myös asettaa pelin pauselle painamalla **välilyöntiä**.
